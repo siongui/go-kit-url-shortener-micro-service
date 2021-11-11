@@ -1,14 +1,19 @@
 package main
 
 import (
-	"log"
 	"net/http"
+	"os"
 
+	"github.com/go-kit/kit/log"
 	httptransport "github.com/go-kit/kit/transport/http"
 )
 
 func main() {
-	uss := urlShortenerService{}
+	logger := log.NewLogfmtLogger(os.Stderr)
+
+	var uss UrlShortenerService
+	uss = urlShortenerService{}
+	uss = loggingMiddleware{logger, uss}
 
 	shortenHandler := httptransport.NewServer(
 		makeShortenEndpoint(uss),
@@ -17,5 +22,6 @@ func main() {
 	)
 
 	http.Handle("/create", shortenHandler)
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	logger.Log("msg", "HTTP", "addr", ":8080")
+	logger.Log("err", http.ListenAndServe(":8080", nil))
 }
