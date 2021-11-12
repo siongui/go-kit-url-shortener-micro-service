@@ -72,6 +72,29 @@ Bonus
 - Anything you think worth the points.
 
 
+Usage
++++++
+
+To run the micro-service:
+
+.. code-block:: bash
+
+  $ go run instrumenting.go logging.go main.go service.go transport.go
+
+To create short URL:
+
+.. code-block:: bash
+
+  # Algorithm not implemented yet. Return only original URL.
+  $ curl -XPOST -d'{"url":"https://github.com/siongui/go-kit-url-shortener-micro-service"}' localhost:8080/create
+
+To see metrics of the the micro-service:
+
+.. code-block:: bash
+
+  $ curl -XGET localhost:8080/metrics
+
+
 UNLICENSE
 +++++++++
 
