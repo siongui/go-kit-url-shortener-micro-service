@@ -1,5 +1,9 @@
 package main
 
+import (
+	"github.com/segmentio/ksuid"
+)
+
 type UrlShortenerService interface {
 	Shorten(string) (string, error)
 }
@@ -7,6 +11,7 @@ type UrlShortenerService interface {
 type urlShortenerService struct{}
 
 func (urlShortenerService) Shorten(url string) (surl string, err error) {
-	// To be implemented later. Just return original URL
-	return url, nil
+	// Return uuid as short URL
+	surl = ksuid.New().String()
+	return
 }

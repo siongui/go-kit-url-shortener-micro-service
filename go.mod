@@ -5,6 +5,7 @@ go 1.17
 require (
 	github.com/go-kit/kit v0.12.0
 	github.com/prometheus/client_golang v1.11.0
+	github.com/segmentio/ksuid v1.0.4
 )
 
 require (
