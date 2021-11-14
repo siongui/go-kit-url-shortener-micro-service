@@ -44,6 +44,12 @@ Bonus
 - Anything you think worth the points.
 
 
+Referencs
++++++++++
+
+.. [1] | `Maintainable Go Projects – Huseyin BABAL <https://huseyinbabal.com/2021/11/14/maintainable-go-projects/>`_
+       | `Maintainable Go Projects : golang <https://old.reddit.com/r/golang/comments/qtlih7/maintainable_go_projects/>`_
+
 .. _Go kit: https://gokit.io/
 .. _gin: https://github.com/gin-gonic/gin
 .. _curl: https://curl.se/
