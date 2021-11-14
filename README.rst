@@ -129,6 +129,17 @@ References
        | `Go URL shortener <https://github.com/siongui/goshorturl>`_
        | `Go Employee Open API <https://github.com/siongui/go-employee-api>`_
 
+.. [5] | `golang generate unique id - Google search <https://www.google.com/search?q=golang+generate+unique+id>`_
+       | `golang generate unique id - DuckDuckGo search <https://duckduckgo.com/?q=golang+generate+unique+id>`_
+       | `golang generate unique id - Ecosia search <https://www.ecosia.org/search?q=golang+generate+unique+id>`_
+       | `golang generate unique id - Qwant search <https://www.qwant.com/?q=golang+generate+unique+id>`_
+       | `golang generate unique id - Bing search <https://www.bing.com/search?q=golang+generate+unique+id>`_
+       | `golang generate unique id - Yahoo search <https://search.yahoo.com/search?p=golang+generate+unique+id>`_
+       | `golang generate unique id - Baidu search <https://www.baidu.com/s?wd=golang+generate+unique+id>`_
+       | `golang generate unique id - Yandex search <https://www.yandex.com/search/?text=golang+generate+unique+id>`_
+       |
+       | `Generating good unique ids in Go <https://blog.kowalczyk.info/article/JyRZ/generating-good-unique-ids-in-go.html>`_
+
 
 .. _Go: https://golang.org/
 .. _Ubuntu 20.04: https://releases.ubuntu.com/20.04/
