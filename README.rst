@@ -35,11 +35,12 @@ See `Assignment <Assignment.rst>`_.
 Usage
 +++++
 
-To run the micro-service:
+To run the micro-service in Docker_ container:
 
 .. code-block:: bash
 
-  $ make run
+  $ docker build --tag url-shortener .
+  $ docker run --publish 8080:8008 url-shortener
 
 To create short URL:
 
