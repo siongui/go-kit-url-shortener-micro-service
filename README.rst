@@ -99,6 +99,9 @@ References
        |
        | `Generating good unique ids in Go <https://blog.kowalczyk.info/article/JyRZ/generating-good-unique-ids-in-go.html>`_
 
+.. [6] | `go kit + gin - Google search <https://www.google.com/search?q=go+kit+%2B+gin>`_
+       | `Gin与go-kit如何搭配使用？ - 知乎 <https://www.zhihu.com/question/323548694>`_
+       | `examples/stringsvc5 at feature-add-gin-example · xpzouying/examples <https://github.com/xpzouying/examples/tree/feature-add-gin-example/stringsvc5>`_
 
 .. _Go: https://golang.org/
 .. _Ubuntu 20.04: https://releases.ubuntu.com/20.04/

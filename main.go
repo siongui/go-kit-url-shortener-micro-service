@@ -4,12 +4,28 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/gin-gonic/gin"
 	"github.com/go-kit/kit/log"
 	kitprometheus "github.com/go-kit/kit/metrics/prometheus"
 	httptransport "github.com/go-kit/kit/transport/http"
 	stdprometheus "github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
+
+func makeHttpHandler(uss UrlShortenerService) http.Handler {
+	r := gin.Default()
+
+	shortenHandler := httptransport.NewServer(
+		makeShortenEndpoint(uss),
+		decodeUrlShortenerRequest,
+		encodeResponse,
+	)
+	r.POST("/create", gin.WrapH(shortenHandler))
+
+	r.GET("/metrics", gin.WrapH(promhttp.Handler()))
+
+	return r
+}
 
 func main() {
 	logger := log.NewLogfmtLogger(os.Stderr)
@@ -50,14 +66,6 @@ func main() {
 	uss = loggingMiddleware{logger, uss}
 	uss = instrumentingMiddleware{requestCount, requestLatency, countResult, uss}
 
-	shortenHandler := httptransport.NewServer(
-		makeShortenEndpoint(uss),
-		decodeUrlShortenerRequest,
-		encodeResponse,
-	)
-
-	http.Handle("/create", shortenHandler)
-	http.Handle("/metrics", promhttp.Handler())
 	logger.Log("msg", "HTTP", "addr", ":8080")
-	logger.Log("err", http.ListenAndServe(":8080", nil))
+	logger.Log("err", http.ListenAndServe(":8080", makeHttpHandler(uss)))
 }
