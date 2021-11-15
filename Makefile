@@ -15,6 +15,9 @@ test_curl:
 test_curl_metrics:
 	curl -XGET localhost:8080/metrics
 
+test: fmt
+	go test -v -race
+
 fmt:
 	go fmt *.go
 
