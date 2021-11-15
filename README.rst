@@ -39,13 +39,12 @@ To run the micro-service:
 
 .. code-block:: bash
 
-  $ go run instrumenting.go logging.go main.go service.go transport.go
+  $ make run
 
 To create short URL:
 
 .. code-block:: bash
 
-  # Algorithm not implemented yet. Return only uuid as short URL.
   $ curl -XPOST -d'{"url":"https://github.com/siongui/go-kit-url-shortener-micro-service"}' localhost:8080/create
 
 To see metrics of the the micro-service:
