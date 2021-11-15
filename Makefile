@@ -9,8 +9,10 @@ ALL_GO_SOURCES=$(shell /bin/sh -c "find *.go | grep -v _test.go")
 run: fmt
 	go run $(ALL_GO_SOURCES)
 
-test_curl:
+test_curl_create1:
 	curl -XPOST -d'{"url":"https://github.com/siongui/go-kit-url-shortener-micro-service"}' localhost:8080/create
+test_curl_create2:
+	curl -XPOST -d'{"url":"https://github.com/siongui/goef"}' localhost:8080/create
 
 test_curl_metrics:
 	curl -XGET localhost:8080/metrics

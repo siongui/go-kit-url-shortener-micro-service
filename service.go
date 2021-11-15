@@ -8,6 +8,7 @@ import (
 
 type UrlShortenerService interface {
 	Shorten(string) (string, error)
+	GetOriginalUrl(string) (string, error)
 }
 
 type urlShortenerService struct {
@@ -29,5 +30,11 @@ func (u urlShortenerService) Shorten(url string) (surl string, err error) {
 	}
 
 	surl = su.ShortUrlCode
+	return
+}
+
+func (u urlShortenerService) GetOriginalUrl(shortcode string) (url string, err error) {
+	su, err := u.ds.SelectByShortUrlCode(shortcode)
+	url = su.OriginalUrl
 	return
 }

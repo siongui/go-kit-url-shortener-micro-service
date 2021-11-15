@@ -39,3 +39,23 @@ func decodeUrlShortenerRequest(_ context.Context, r *http.Request) (interface{},
 func encodeResponse(_ context.Context, w http.ResponseWriter, response interface{}) error {
 	return json.NewEncoder(w).Encode(response)
 }
+
+type urlGetOriginalUrlResponse struct {
+	Url string `json:"url"`
+	Err string `json:"err,omitempty"` // errors don't JSON-marshal, so we use a string
+}
+
+func makeGetOriginalUrlEndpoint(uss UrlShortenerService) endpoint.Endpoint {
+	return func(_ context.Context, request interface{}) (interface{}, error) {
+		shortcode := request.(string)
+		url, err := uss.GetOriginalUrl(shortcode)
+		if err != nil {
+			return urlGetOriginalUrlResponse{url, err.Error()}, nil
+		}
+		return urlGetOriginalUrlResponse{url, ""}, nil
+	}
+}
+
+func decodeUrlGetOriginalUrlRequest(_ context.Context, r *http.Request) (interface{}, error) {
+	return r.URL.Path[1:], nil
+}

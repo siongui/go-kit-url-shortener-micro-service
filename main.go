@@ -24,6 +24,13 @@ func makeHttpHandler(uss UrlShortenerService) http.Handler {
 
 	r.GET("/metrics", gin.WrapH(promhttp.Handler()))
 
+	getOriginalUrlHandler := httptransport.NewServer(
+		makeGetOriginalUrlEndpoint(uss),
+		decodeUrlGetOriginalUrlRequest,
+		encodeResponse,
+	)
+	r.GET("/:shortcode", gin.WrapH(getOriginalUrlHandler))
+
 	return r
 }
 
@@ -45,6 +52,7 @@ func main() {
 		Help:      "Total duration of requests in microseconds.",
 	}, fieldKeys)
 
+	// The following countResult is not used. Can be removed.
 	countResult := kitprometheus.NewSummaryFrom(stdprometheus.SummaryOpts{
 		Namespace: "my_group",
 		Subsystem: "url_shortener_service",

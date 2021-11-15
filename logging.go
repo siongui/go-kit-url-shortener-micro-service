@@ -25,3 +25,18 @@ func (mw loggingMiddleware) Shorten(url string) (surl string, err error) {
 	surl, err = mw.next.Shorten(url)
 	return
 }
+
+func (mw loggingMiddleware) GetOriginalUrl(shortcode string) (url string, err error) {
+	defer func(begin time.Time) {
+		mw.logger.Log(
+			"method", "get_original_url",
+			"input", shortcode,
+			"output", url,
+			"err", err,
+			"took", time.Since(begin),
+		)
+	}(time.Now())
+
+	url, err = mw.next.GetOriginalUrl(shortcode)
+	return
+}
