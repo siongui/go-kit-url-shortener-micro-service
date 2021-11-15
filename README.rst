@@ -35,12 +35,12 @@ See `Assignment <Assignment.rst>`_.
 Usage
 +++++
 
-To run the micro-service in Docker_ container:
+First install ``Docker Engine`` and `Docker Compose`_.
+To run the micro-service in Docker_ environment:
 
 .. code-block:: bash
 
-  $ docker build --tag url-shortener .
-  $ docker run --publish 8080:8080 url-shortener
+  $ sudo docker-compose up --build
 
 To create short URL:
 
@@ -137,4 +137,5 @@ References
 .. _UNLICENSE: https://unlicense.org/
 .. _Go kit: https://gokit.io/
 .. _Docker: https://www.docker.com/
+.. _Docker Compose: https://docs.docker.com/compose/
 .. _Amazon EKS: https://aws.amazon.com/eks/

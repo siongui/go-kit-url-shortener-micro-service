@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  docker-url-shortener:
+    build:
+      context: .
+    container_name: rest-server
+    ports:
+      - 8080:8080
