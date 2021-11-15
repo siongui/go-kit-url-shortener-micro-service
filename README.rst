@@ -46,6 +46,21 @@ To create short URL:
 .. code-block:: bash
 
   $ curl -XPOST -d'{"url":"https://github.com/siongui/go-kit-url-shortener-micro-service"}' localhost:8080/create
+  {"short_url":"20wogJaCuRtH0U5p60LvjZoVwsz"}
+
+To recover the original URL:
+
+.. code-block:: bash
+
+  $ curl -XGET localhost:8080/20wogJaCuRtH0U5p60LvjZoVwsz
+  {"url":"https://github.com/siongui/go-kit-url-shortener-micro-service"}
+
+If you HTTP GET some URL that does not exist, you will get:
+
+.. code-block:: bash
+
+  $ curl -XGET localhost:8080/20wogJaCuRtH0U5p
+  {"url":"","err":"sql: no rows in result set"}
 
 To see metrics of the the micro-service:
 
