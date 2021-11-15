@@ -119,6 +119,18 @@ References
        | `Gin与go-kit如何搭配使用？ - 知乎 <https://www.zhihu.com/question/323548694>`_
        | `examples/stringsvc5 at feature-add-gin-example · xpzouying/examples <https://github.com/xpzouying/examples/tree/feature-add-gin-example/stringsvc5>`_
 
+.. [7] | `run golang on docker - Google search <https://www.google.com/search?q=run+golang+on+docker>`_
+       | `run golang on docker - DuckDuckGo search <https://duckduckgo.com/?q=run+golang+on+docker>`_
+       | `run golang on docker - Ecosia search <https://www.ecosia.org/search?q=run+golang+on+docker>`_
+       | `run golang on docker - Qwant search <https://www.qwant.com/?q=run+golang+on+docker>`_
+       | `run golang on docker - Bing search <https://www.bing.com/search?q=run+golang+on+docker>`_
+       | `run golang on docker - Yahoo search <https://search.yahoo.com/search?p=run+golang+on+docker>`_
+       | `run golang on docker - Baidu search <https://www.baidu.com/s?wd=run+golang+on+docker>`_
+       | `run golang on docker - Yandex search <https://www.yandex.com/search/?text=run+golang+on+docker>`_
+       |
+       | `Build your Go image | Docker Documentation <https://docs.docker.com/language/golang/build-images/>`_
+
+
 .. _Go: https://golang.org/
 .. _Ubuntu 20.04: https://releases.ubuntu.com/20.04/
 .. _Go 1.17: https://golang.org/dl/
