@@ -36,8 +36,17 @@ func main() {
 		Help:      "The result of each count method.",
 	}, []string{}) // no fields here
 
+	// Used by services to store short URL
+	s3 := sqlite{}
+	s3.InitSQLite(false)
+	_, err := s3.CreateShortUrlTable()
+	if err != nil {
+		logger.Log("err", err)
+		panic(err)
+	}
+
 	var uss UrlShortenerService
-	uss = urlShortenerService{}
+	uss = urlShortenerService{ds: &s3}
 	uss = loggingMiddleware{logger, uss}
 	uss = instrumentingMiddleware{requestCount, requestLatency, countResult, uss}
 
