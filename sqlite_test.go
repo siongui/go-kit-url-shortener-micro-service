@@ -16,6 +16,13 @@ func TestSqliteOperation(t *testing.T) {
 		return
 	}
 
+	// test create if not exists
+	_, err = s3.CreateShortUrlTable()
+	if err != nil {
+		t.Error(err)
+		return
+	}
+
 	u := ShortUrl{
 		ShortUrlCode: "ashiie",
 		OriginalUrl:  "https://abc.ed/aas",

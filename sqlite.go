@@ -17,7 +17,7 @@ type sqlite struct {
 
 // CreateShortUrlTable creates table in the database to store short links.
 func (s *sqlite) CreateShortUrlTable() (sql.Result, error) {
-	return s.db.NewCreateTable().Model((*ShortUrl)(nil)).Exec(s.ctx)
+	return s.db.NewCreateTable().Model((*ShortUrl)(nil)).IfNotExists().Exec(s.ctx)
 }
 
 // InitSQLite initialize in-memory database to store data. The verbose flag

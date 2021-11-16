@@ -60,20 +60,26 @@ func main() {
 		Help:      "The result of each count method.",
 	}, []string{}) // no fields here
 
-	// Used by services to store short URL
-	s3 := sqlite{}
-	s3.InitSQLite(false)
-	_, err := s3.CreateShortUrlTable()
-	if err != nil {
-		logger.Log("err", err)
-		panic(err)
-	}
-
 	var uss UrlShortenerService
-	uss = urlShortenerService{ds: &s3}
+	uss = urlShortenerService{ds: getSqliteDataSource()}
 	uss = loggingMiddleware{logger, uss}
 	uss = instrumentingMiddleware{requestCount, requestLatency, countResult, uss}
 
 	logger.Log("msg", "HTTP", "addr", ":8080")
 	logger.Log("err", http.ListenAndServe(":8080", makeHttpHandler(uss)))
+}
+
+func getSqliteDataSource() DataSource {
+	// Used by services to store short URL
+	s3 := sqlite{}
+	err := s3.InitSQLite(false)
+	if err != nil {
+		panic(err)
+	}
+	_, err = s3.CreateShortUrlTable()
+	if err != nil {
+		panic(err)
+	}
+
+	return &s3
 }
