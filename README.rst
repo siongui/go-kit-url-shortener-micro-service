@@ -130,6 +130,22 @@ References
        |
        | `Build your Go image | Docker Documentation <https://docs.docker.com/language/golang/build-images/>`_
 
+.. [8] | `Overview of Docker Compose | Docker Documentation <https://docs.docker.com/compose/>`_
+       | `用 Docker 玩轉 PostgreSQL | My.APOLLO <https://myapollo.com.tw/zh-tw/docker-postgres/>`_
+       | `Docker - 第十二章 | 安裝PostgreSQL | J.J.'s Blogs <https://morosedog.gitlab.io/docker-20190505-docker12/>`_
+       | `[Docker] 於 Windows 中運行 PostgreSQL Container 來提供本機 DB 開發環境 | 搞搞就懂 - 點部落 <https://www.dotblogs.com.tw/wasichris/2020/11/13/104023>`_
+       | `Play PostgreSQL with Docker. Docker 就是你的實驗室，執行記錄 | by 古哥 | pgsql-tw | Medium <https://medium.com/pgsql-tw/play-postgresql-with-docker-4dbc15d9b0d3>`_
+       | `Docker筆記 - 進入Container，建立並操作 PostgreSQL Container | by Albert Hg | alberthg-docker-notes | Medium <https://medium.com/alberthg-docker-notes/docker%E7%AD%86%E8%A8%98-%E9%80%B2%E5%85%A5container-%E5%BB%BA%E7%AB%8B%E4%B8%A6%E6%93%8D%E4%BD%9C-postgresql-container-d221ba39aaec>`_
+       | `docker compose postgres - Google search <https://www.google.com/search?q=docker+compose+postgres>`_
+       | `docker compose postgres - DuckDuckGo search <https://duckduckgo.com/?q=docker+compose+postgres>`_
+       | `docker compose postgres - Ecosia search <https://www.ecosia.org/search?q=docker+compose+postgres>`_
+       | `docker compose postgres - Qwant search <https://www.qwant.com/?q=docker+compose+postgres>`_
+       | `docker compose postgres - Bing search <https://www.bing.com/search?q=docker+compose+postgres>`_
+       | `docker compose postgres - Yahoo search <https://search.yahoo.com/search?p=docker+compose+postgres>`_
+       | `docker compose postgres - Baidu search <https://www.baidu.com/s?wd=docker+compose+postgres>`_
+       | `docker compose postgres - Yandex search <https://www.yandex.com/search/?text=docker+compose+postgres>`_
+       | `Creating and filling a Postgres DB with Docker compose | by José David Arévalo | Level Up Coding <https://levelup.gitconnected.com/creating-and-filling-a-postgres-db-with-docker-compose-e1607f6f882f>`_
+
 
 .. _Go: https://golang.org/
 .. _Ubuntu 20.04: https://releases.ubuntu.com/20.04/

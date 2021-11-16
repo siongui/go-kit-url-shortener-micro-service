@@ -8,7 +8,9 @@ require (
 	github.com/prometheus/client_golang v1.11.0
 	github.com/segmentio/ksuid v1.0.4
 	github.com/uptrace/bun v1.0.17
+	github.com/uptrace/bun/dialect/pgdialect v1.0.17
 	github.com/uptrace/bun/dialect/sqlitedialect v1.0.17
+	github.com/uptrace/bun/driver/pgdriver v1.0.17
 	github.com/uptrace/bun/driver/sqliteshim v1.0.17
 	github.com/uptrace/bun/extra/bundebug v1.0.17
 )
@@ -42,7 +44,7 @@ require (
 	github.com/ugorji/go/codec v1.1.7 // indirect
 	github.com/vmihailenco/msgpack/v5 v5.3.4 // indirect
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
-	golang.org/x/crypto v0.0.0-20210915214749-c084706c2272 // indirect
+	golang.org/x/crypto v0.0.0-20210921155107-089bfa567519 // indirect
 	golang.org/x/mod v0.5.1 // indirect
 	golang.org/x/sys v0.0.0-20211007075335-d3039528d8ac // indirect
 	golang.org/x/tools v0.1.7 // indirect
@@ -50,6 +52,7 @@ require (
 	google.golang.org/protobuf v1.27.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	lukechampine.com/uint128 v1.1.1 // indirect
+	mellium.im/sasl v0.2.1 // indirect
 	modernc.org/cc/v3 v3.35.8 // indirect
 	modernc.org/ccgo/v3 v3.12.17 // indirect
 	modernc.org/libc v1.11.23 // indirect

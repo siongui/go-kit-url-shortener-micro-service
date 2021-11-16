@@ -61,12 +61,24 @@ func main() {
 	}, []string{}) // no fields here
 
 	var uss UrlShortenerService
-	uss = urlShortenerService{ds: getSqliteDataSource()}
+	uss = urlShortenerService{ds: getPostgreDataSource()}
 	uss = loggingMiddleware{logger, uss}
 	uss = instrumentingMiddleware{requestCount, requestLatency, countResult, uss}
 
 	logger.Log("msg", "HTTP", "addr", ":8080")
 	logger.Log("err", http.ListenAndServe(":8080", makeHttpHandler(uss)))
+}
+
+func getPostgreDataSource() DataSource {
+	// Used by services to store short URL
+	p := postgre{}
+	p.Init("postgres://postgres:changeme@db-postgres:5432/postgres?sslmode=disable", false)
+	_, err := p.CreateShortUrlTable()
+	if err != nil {
+		panic(err)
+	}
+
+	return &p
 }
 
 func getSqliteDataSource() DataSource {
