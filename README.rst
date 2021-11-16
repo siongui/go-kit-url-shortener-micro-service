@@ -146,6 +146,17 @@ References
        | `docker compose postgres - Yandex search <https://www.yandex.com/search/?text=docker+compose+postgres>`_
        | `Creating and filling a Postgres DB with Docker compose | by José David Arévalo | Level Up Coding <https://levelup.gitconnected.com/creating-and-filling-a-postgres-db-with-docker-compose-e1607f6f882f>`_
 
+.. [9] | `run postgres on github actions - Google search <https://www.google.com/search?q=run+postgres+on+github+actions>`_
+       | `run postgres on github actions - DuckDuckGo search <https://duckduckgo.com/?q=run+postgres+on+github+actions>`_
+       | `run postgres on github actions - Ecosia search <https://www.ecosia.org/search?q=run+postgres+on+github+actions>`_
+       | `run postgres on github actions - Qwant search <https://www.qwant.com/?q=run+postgres+on+github+actions>`_
+       | `run postgres on github actions - Bing search <https://www.bing.com/search?q=run+postgres+on+github+actions>`_
+       | `run postgres on github actions - Yahoo search <https://search.yahoo.com/search?p=run+postgres+on+github+actions>`_
+       | `run postgres on github actions - Baidu search <https://www.baidu.com/s?wd=run+postgres+on+github+actions>`_
+       | `run postgres on github actions - Yandex search <https://www.yandex.com/search/?text=run+postgres+on+github+actions>`_
+       |
+       | `Creating PostgreSQL service containers - GitHub Docs <https://docs.github.com/en/actions/using-containerized-services/creating-postgresql-service-containers>`_
+
 
 .. _Go: https://golang.org/
 .. _Ubuntu 20.04: https://releases.ubuntu.com/20.04/
