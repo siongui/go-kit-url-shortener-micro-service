@@ -22,7 +22,7 @@ ls_network:
 	sudo docker network list
 
 ls_context:
-	docker context ls
+	sudo docker context ls
 
 docker_ps:
 	sudo docker ps
