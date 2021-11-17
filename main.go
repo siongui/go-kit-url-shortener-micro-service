@@ -61,7 +61,7 @@ func main() {
 	}, []string{}) // no fields here
 
 	var uss UrlShortenerService
-	uss = urlShortenerService{ds: getPostgreDataSource()}
+	uss = urlShortenerService{ds: getSqliteDataSource()}
 	uss = loggingMiddleware{logger, uss}
 	uss = instrumentingMiddleware{requestCount, requestLatency, countResult, uss}
 
