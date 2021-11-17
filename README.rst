@@ -103,6 +103,7 @@ References
        | `golang 微服务 - Yahoo search <https://search.yahoo.com/search?p=golang+%E5%BE%AE%E6%9C%8D%E5%8A%A1>`_
        | `golang 微服务 - Baidu search <https://www.baidu.com/s?wd=golang+%E5%BE%AE%E6%9C%8D%E5%8A%A1>`_
        | `golang 微服务 - Yandex search <https://www.yandex.com/search/?text=golang+%E5%BE%AE%E6%9C%8D%E5%8A%A1>`_
+       | `如何使用 Go kit 工具包编写微服务  - Go语言中文网 - Golang中文社区 <https://studygolang.com/articles/21378>`_
 
 .. [3] `Microservices in Go <https://medium.com/seek-blog/microservices-in-go-2fc1570f6800>`_
        (`Chinese translation <https://learnku.com/go/t/36973>`__)
