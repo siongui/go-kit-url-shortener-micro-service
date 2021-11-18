@@ -10,6 +10,7 @@ Deploy Docker Compose to Amazon ECS
 5. Build and push Docker image to container registry. See
    `Docker basics for Amazon ECS - Amazon Elastic Container Service <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html>`_
 6. Create docker AWS context and ``docker compose up``. See
+
    | `Deploying Docker containers on ECS | Docker Documentation <https://docs.docker.com/cloud/ecs-integration/>`_
    | `Deploy applications on Amazon ECS using Docker Compose | Containers <https://aws.amazon.com/blogs/containers/deploy-applications-on-amazon-ecs-using-docker-compose/>`_
    | **IMPORTANT TRICK**: need ``sudo`` before
@@ -32,6 +33,9 @@ Search the message on Google and found
 - `docker compose ecs deploy aws tutorial: celery incompatible attribute · Issue #8040 · docker/compose · GitHub <https://github.com/docker/compose/issues/8040>`_
 - `docker compose ecs deploy aws tutorial: celery incompatible attribute · Issue #1159 · docker/compose-cli · GitHub <https://github.com/docker/compose-cli/issues/1159>`_
 
+
+References
+++++++++++
 
 .. [1] | `ecs vs kubernetes - Google search <https://www.google.com/search?q=ecs+vs+kubernetes>`_
        | `ecs vs kubernetes - DuckDuckGo search <https://duckduckgo.com/?q=ecs+vs+kubernetes>`_
