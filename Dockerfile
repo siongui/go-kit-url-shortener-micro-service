@@ -10,9 +10,12 @@ WORKDIR /app
 COPY go.mod ./
 COPY go.sum ./
 RUN go mod download
+RUN go get -u github.com/gopherjs/gopherjs
 
 COPY *.go ./
+COPY ./frontend/ ./frontend/
 
+RUN gopherjs build frontend/*.go -m -o frontend/app.js
 RUN go build -o /url-shortener
 
 EXPOSE 8080

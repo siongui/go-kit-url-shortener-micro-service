@@ -15,6 +15,13 @@ import (
 func makeHttpHandler(uss UrlShortenerService) http.Handler {
 	r := gin.Default()
 
+	// frontend UI for short URL service
+	r.LoadHTMLGlob("./frontend/*.html")
+	r.Static("/js", "./frontend/")
+	r.GET("/", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "index.html", nil)
+	})
+
 	shortenHandler := httptransport.NewServer(
 		makeShortenEndpoint(uss),
 		decodeUrlShortenerRequest,

@@ -2,6 +2,10 @@ ifndef GOROOT
 	export GOROOT=$(realpath $(CURDIR)/../go)
 	export PATH := $(GOROOT)/bin:$(PATH)
 endif
+ifndef GOPATH
+	export GOPATH=$(CURDIR)/frontend
+	export PATH := $(GOPATH)/bin:$(PATH)
+endif
 
 
 ALL_GO_SOURCES=$(shell /bin/sh -c "find *.go | grep -v _test.go")
@@ -33,6 +37,10 @@ docker_ps_all:
 run: fmt
 	go run $(ALL_GO_SOURCES)
 
+js: fmt
+	@echo "\033[92mGenerating JavaScript ...\033[0m"
+	@gopherjs build frontend/*.go -m -o frontend/app.js
+
 test_curl_create1:
 	curl -XPOST -d'{"url":"https://github.com/siongui/go-kit-url-shortener-micro-service"}' localhost:8080/create
 test_curl_create2:
@@ -46,9 +54,13 @@ test: fmt
 
 fmt:
 	go fmt *.go
+	go fmt frontend/*.go
 
 modinit:
 	go mod init github.com/siongui/go-kit-url-shortener-micro-service
 
 modtidy:
 	go mod tidy -compat=1.17
+
+install_gopherjs:
+	go get -u github.com/gopherjs/gopherjs
