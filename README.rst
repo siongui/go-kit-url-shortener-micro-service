@@ -70,6 +70,27 @@ To see metrics of the the micro-service:
   $ curl -XGET localhost:8080/metrics
 
 
+Service Configuration
++++++++++++++++++++++
+
+Possible service configuration in local and deployment environment.
+
+Local Development Environment
+-----------------------------
+
+- URL shortener + SQLite: 1 container, including both.
+- URL shortener + PostgresSQL: 2 container, one for URL shortener, the other for
+  PostgresSQL
+
+Deployment Environment
+----------------------
+
+- URL shortener + SQLite: Deployed on Amazon ECS with only 1 Fargate.
+- URL shortener + PostgresSQL: Do not know how to do container communication. To
+  be studied.
+- URL shortener + `Amazon RDS`_: TO be studied.
+
+
 Deployment
 ++++++++++
 
@@ -174,3 +195,4 @@ References
 .. _Docker: https://www.docker.com/
 .. _Docker Compose: https://docs.docker.com/compose/
 .. _Amazon EKS: https://aws.amazon.com/eks/
+.. _Amazon RDS: https://aws.amazon.com/rds/
