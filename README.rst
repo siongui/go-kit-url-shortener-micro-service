@@ -86,9 +86,9 @@ Deployment Environment
 ----------------------
 
 - URL shortener + SQLite: Deployed on Amazon ECS with only 1 Fargate.
-- URL shortener + PostgresSQL: Do not know how to do container communication. To
-  be studied.
-- URL shortener + `Amazon RDS`_: TO be studied.
+- URL shortener + PostgresSQL: ``services.hostname`` in docker compose file is
+  not supported. To be studied.
+- URL shortener + `Amazon RDS`_: To be studied.
 
 
 Deployment

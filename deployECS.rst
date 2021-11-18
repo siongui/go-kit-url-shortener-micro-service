@@ -24,7 +24,7 @@ Issue
 
 .. code-block:: bash
 
-  ARNING services.hostname: unsupported attribute
+  WARNING services.hostname: unsupported attribute
   WARNING services.build: unsupported attribute
   service (NAME OF SERVICE) doesn't define a Docker image to run: incompatible attribute
 
