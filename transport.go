@@ -59,3 +59,15 @@ func makeGetOriginalUrlEndpoint(uss UrlShortenerService) endpoint.Endpoint {
 func decodeUrlGetOriginalUrlRequest(_ context.Context, r *http.Request) (interface{}, error) {
 	return r.URL.Path[1:], nil
 }
+
+// How to redirect my request?
+// https://github.com/go-kit/kit/issues/1088
+func encodeUrlGetOriginalUrlResponse(_ context.Context, w http.ResponseWriter, response interface{}) error {
+	r := response.(urlGetOriginalUrlResponse)
+	if r.Err == "" {
+		w.Header().Set("Location", r.Url)
+		w.WriteHeader(http.StatusSeeOther)
+		return nil
+	}
+	return json.NewEncoder(w).Encode(response)
+}

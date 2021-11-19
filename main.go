@@ -35,7 +35,7 @@ func makeHttpHandler(uss UrlShortenerService) http.Handler {
 	getOriginalUrlHandler := httptransport.NewServer(
 		makeGetOriginalUrlEndpoint(uss),
 		decodeUrlGetOriginalUrlRequest,
-		encodeResponse,
+		encodeUrlGetOriginalUrlResponse,
 	)
 	r.GET("/:shortcode", gin.WrapH(getOriginalUrlHandler))
 
