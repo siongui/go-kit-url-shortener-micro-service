@@ -5,7 +5,8 @@ services:
     depends_on:
       - docker-postgres
     build:
-      context: .
+      context: ../..
+    image: url-shortener:latest
     container_name: url-shorten-golang-rest-server
     networks:
       - url-shorten-network

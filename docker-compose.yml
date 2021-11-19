@@ -4,5 +4,6 @@ services:
   docker-url-shortener:
     build:
       context: .
+    image: url-shortener:latest
     ports:
       - 8080:8080

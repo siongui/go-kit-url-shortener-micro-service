@@ -14,8 +14,7 @@ docker:
 	sudo docker-compose up --build
 
 docker-local-postgres:
-	sudo docker build --tag url-shortener .
-	sudo docker-compose -f docker-compose-local-postgres.yml up
+	sudo docker-compose -f resources/docker/docker-compose-local-postgres.yml up --build
 
 context-default:
 	sudo docker context use default
