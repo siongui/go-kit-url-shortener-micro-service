@@ -1,4 +1,4 @@
-package main
+package datasource
 
 import (
 	"context"
@@ -10,12 +10,12 @@ import (
 	"github.com/uptrace/bun/extra/bundebug"
 )
 
-type postgre struct {
+type Postgres struct {
 	db  *bun.DB
 	ctx context.Context
 }
 
-func (p *postgre) Init(dsn string, verbose bool) {
+func (p *Postgres) Init(dsn string, verbose bool) {
 	p.ctx = context.Background()
 
 	// Open a PostgreSQL database.
@@ -28,12 +28,12 @@ func (p *postgre) Init(dsn string, verbose bool) {
 	p.db.AddQueryHook(bundebug.NewQueryHook(bundebug.WithVerbose(verbose)))
 }
 
-func (p *postgre) CreateShortUrlTable() (sql.Result, error) {
+func (p *Postgres) CreateShortUrlTable() (sql.Result, error) {
 	return p.db.NewCreateTable().Model((*ShortUrl)(nil)).IfNotExists().Exec(p.ctx)
 }
 
 // SelectAllShortUrl reads all short links records from the database.
-func (p *postgre) SelectAllShortUrl() (us []ShortUrl, err error) {
+func (p *Postgres) SelectAllShortUrl() (us []ShortUrl, err error) {
 	err = p.db.NewSelect().
 		Model(&us).
 		OrderExpr("short_url_code ASC").
@@ -42,12 +42,12 @@ func (p *postgre) SelectAllShortUrl() (us []ShortUrl, err error) {
 }
 
 // InsertShortUrl inserts one record of short links in the database.
-func (p *postgre) InsertShortUrl(u ShortUrl) (result sql.Result, err error) {
+func (p *Postgres) InsertShortUrl(u ShortUrl) (result sql.Result, err error) {
 	return p.db.NewInsert().Model(&u).Exec(p.ctx)
 }
 
 // SelectByOriginalUrl selects the record by original URL in the database.
-func (p *postgre) SelectByOriginalUrl(oriurl string) (us ShortUrl, err error) {
+func (p *Postgres) SelectByOriginalUrl(oriurl string) (us ShortUrl, err error) {
 	err = p.db.NewSelect().
 		Model(&us).
 		Where("original_url = ?", oriurl).
@@ -57,7 +57,7 @@ func (p *postgre) SelectByOriginalUrl(oriurl string) (us ShortUrl, err error) {
 }
 
 // SelectByShortUrlCode selects the record by short url code in the database.
-func (p *postgre) SelectByShortUrlCode(code string) (us ShortUrl, err error) {
+func (p *Postgres) SelectByShortUrlCode(code string) (us ShortUrl, err error) {
 	err = p.db.NewSelect().
 		Model(&us).
 		Where("short_url_code = ?", code).

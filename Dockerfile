@@ -14,6 +14,7 @@ RUN go get -u github.com/gopherjs/gopherjs
 
 COPY *.go ./
 COPY ./frontend/ ./frontend/
+COPY ./datasource/ ./datasource/
 
 RUN gopherjs build frontend/*.go -m -o frontend/app.js
 RUN go build -o /url-shortener

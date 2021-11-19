@@ -1,4 +1,4 @@
-package main
+package datasource
 
 import (
 	"database/sql"
@@ -6,7 +6,7 @@ import (
 )
 
 func TestPostgreSQLOperation(t *testing.T) {
-	p := postgre{}
+	p := Postgres{}
 
 	p.Init("postgres://postgres:changeme@localhost:5432/postgres?sslmode=disable", true)
 

@@ -13,6 +13,16 @@ ALL_GO_SOURCES=$(shell /bin/sh -c "find *.go | grep -v _test.go")
 docker:
 	sudo docker-compose up --build
 
+docker-local-postgres:
+	sudo docker build --tag url-shortener .
+	sudo docker-compose -f docker-compose-local-postgres.yml up
+
+context-default:
+	sudo docker context use default
+
+context-esc:
+	sudo docker context use myecscontext
+
 check_compose:
 	docker-compose config
 
@@ -50,7 +60,7 @@ test_curl_metrics:
 	curl -XGET localhost:8080/metrics
 
 test: fmt
-	go test -v -race
+	cd datasource; go test -v -race
 
 fmt:
 	go fmt *.go

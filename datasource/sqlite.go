@@ -1,4 +1,4 @@
-package main
+package datasource
 
 import (
 	"context"
@@ -10,21 +10,20 @@ import (
 	"github.com/uptrace/bun/extra/bundebug"
 )
 
-type sqlite struct {
+type Sqlite struct {
 	db  *bun.DB
 	ctx context.Context
 }
 
 // CreateShortUrlTable creates table in the database to store short links.
-func (s *sqlite) CreateShortUrlTable() (sql.Result, error) {
+func (s *Sqlite) CreateShortUrlTable() (sql.Result, error) {
 	return s.db.NewCreateTable().Model((*ShortUrl)(nil)).IfNotExists().Exec(s.ctx)
 }
 
 // InitSQLite initialize in-memory database to store data. The verbose flag
 // indicates whether to print all queries to stdout.
-func (s *sqlite) InitSQLite(verbose bool) (err error) {
-	// Open an in-memory SQLite database.
-	sqldb, err := sql.Open(sqliteshim.ShimName, "file::memory:?cache=shared")
+func (s *Sqlite) Init(dsn string, verbose bool) (err error) {
+	sqldb, err := sql.Open(sqliteshim.ShimName, dsn)
 	if err != nil {
 		return
 	}
@@ -49,7 +48,7 @@ func (s *sqlite) InitSQLite(verbose bool) (err error) {
 }
 
 // SelectAllShortUrl reads all short links records from the database.
-func (s *sqlite) SelectAllShortUrl() (us []ShortUrl, err error) {
+func (s *Sqlite) SelectAllShortUrl() (us []ShortUrl, err error) {
 	err = s.db.NewSelect().
 		Model(&us).
 		OrderExpr("short_url_code ASC").
@@ -58,12 +57,12 @@ func (s *sqlite) SelectAllShortUrl() (us []ShortUrl, err error) {
 }
 
 // InsertShortUrl inserts one record of short links in the database.
-func (s *sqlite) InsertShortUrl(u ShortUrl) (result sql.Result, err error) {
+func (s *Sqlite) InsertShortUrl(u ShortUrl) (result sql.Result, err error) {
 	return s.db.NewInsert().Model(&u).Exec(s.ctx)
 }
 
 // SelectByOriginalUrl selects the record by original URL in the database.
-func (s *sqlite) SelectByOriginalUrl(oriurl string) (us ShortUrl, err error) {
+func (s *Sqlite) SelectByOriginalUrl(oriurl string) (us ShortUrl, err error) {
 	err = s.db.NewSelect().
 		Model(&us).
 		Where("original_url = ?", oriurl).
@@ -73,7 +72,7 @@ func (s *sqlite) SelectByOriginalUrl(oriurl string) (us ShortUrl, err error) {
 }
 
 // SelectByShortUrlCode selects the record by short url code in the database.
-func (s *sqlite) SelectByShortUrlCode(code string) (us ShortUrl, err error) {
+func (s *Sqlite) SelectByShortUrlCode(code string) (us ShortUrl, err error) {
 	err = s.db.NewSelect().
 		Model(&us).
 		Where("short_url_code = ?", code).

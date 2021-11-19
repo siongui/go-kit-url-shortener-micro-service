@@ -4,6 +4,7 @@ import (
 	"database/sql"
 
 	"github.com/segmentio/ksuid"
+	"github.com/siongui/go-kit-url-shortener-micro-service/datasource"
 )
 
 type UrlShortenerService interface {
@@ -12,7 +13,7 @@ type UrlShortenerService interface {
 }
 
 type urlShortenerService struct {
-	ds DataSource
+	ds datasource.DataSource
 }
 
 func (u urlShortenerService) Shorten(url string) (surl string, err error) {
@@ -21,7 +22,7 @@ func (u urlShortenerService) Shorten(url string) (surl string, err error) {
 		// create an unique id as short URL
 		surl = ksuid.New().String()
 
-		_, err = u.ds.InsertShortUrl(ShortUrl{surl, url})
+		_, err = u.ds.InsertShortUrl(datasource.ShortUrl{surl, url})
 		return
 	}
 

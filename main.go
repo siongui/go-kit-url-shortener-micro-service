@@ -10,6 +10,7 @@ import (
 	httptransport "github.com/go-kit/kit/transport/http"
 	stdprometheus "github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
+	"github.com/siongui/go-kit-url-shortener-micro-service/datasource"
 )
 
 func makeHttpHandler(uss UrlShortenerService) http.Handler {
@@ -69,6 +70,7 @@ func main() {
 
 	var uss UrlShortenerService
 	uss = urlShortenerService{ds: getSqliteDataSource()}
+	//uss = urlShortenerService{ds: getPostgreDataSource()}
 	uss = loggingMiddleware{logger, uss}
 	uss = instrumentingMiddleware{requestCount, requestLatency, countResult, uss}
 
@@ -76,9 +78,9 @@ func main() {
 	logger.Log("err", http.ListenAndServe(":8080", makeHttpHandler(uss)))
 }
 
-func getPostgreDataSource() DataSource {
+func getPostgreDataSource() datasource.DataSource {
 	// Used by services to store short URL
-	p := postgre{}
+	p := datasource.Postgres{}
 	p.Init("postgres://postgres:changeme@db-postgres:5432/postgres?sslmode=disable", false)
 	_, err := p.CreateShortUrlTable()
 	if err != nil {
@@ -88,10 +90,10 @@ func getPostgreDataSource() DataSource {
 	return &p
 }
 
-func getSqliteDataSource() DataSource {
+func getSqliteDataSource() datasource.DataSource {
 	// Used by services to store short URL
-	s3 := sqlite{}
-	err := s3.InitSQLite(false)
+	s3 := datasource.Sqlite{}
+	err := s3.Init("file::memory:?cache=shared", false)
 	if err != nil {
 		panic(err)
 	}

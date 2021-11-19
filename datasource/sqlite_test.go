@@ -1,4 +1,4 @@
-package main
+package datasource
 
 import (
 	"database/sql"
@@ -6,9 +6,10 @@ import (
 )
 
 func TestSqliteOperation(t *testing.T) {
-	s3 := sqlite{}
+	s3 := Sqlite{}
 
-	s3.InitSQLite(true)
+	// Open an in-memory SQLite database.
+	s3.Init("file::memory:?cache=shared", true)
 
 	_, err := s3.CreateShortUrlTable()
 	if err != nil {
