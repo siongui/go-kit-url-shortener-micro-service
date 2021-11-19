@@ -29,7 +29,7 @@ Development Environment:
 Description
 +++++++++++
 
-See `Assignment <Assignment.rst>`_.
+See `Assignment <doc/Assignment.rst>`_.
 
 
 Usage
@@ -94,7 +94,7 @@ Deployment Environment
 Deployment
 ++++++++++
 
-- `Deploy to Amazon ECS <deployECS.rst>`_
+- `Deploy to Amazon ECS <doc/deployECS.rst>`_
 - TODO: deploy to `Amazon EKS`_
 
 
