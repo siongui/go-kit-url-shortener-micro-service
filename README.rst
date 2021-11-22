@@ -186,6 +186,20 @@ References
        |
        | `Creating PostgreSQL service containers - GitHub Docs <https://docs.github.com/en/actions/using-containerized-services/creating-postgresql-service-containers>`_
 
+.. [10] | `Microservices using Go, Docker, RabbitMQ, Redis, AWS, CI/CD : golang <https://old.reddit.com/r/golang/comments/qy8h7j/microservices_using_go_docker_rabbitmq_redis_aws/>`_
+        | `GitHub - ebosas/microservices: A microservices example in Go <https://github.com/ebosas/microservices>`_
+
+.. [11] | `golang short uuid url friendly - Google search <https://www.google.com/search?q=golang+short+uuid+url+friendly>`_
+        | `golang short uuid url friendly - DuckDuckGo search <https://duckduckgo.com/?q=golang+short+uuid+url+friendly>`_
+        | `golang short uuid url friendly - Ecosia search <https://www.ecosia.org/search?q=golang+short+uuid+url+friendly>`_
+        | `golang short uuid url friendly - Qwant search <https://www.qwant.com/?q=golang+short+uuid+url+friendly>`_
+        | `golang short uuid url friendly - Bing search <https://www.bing.com/search?q=golang+short+uuid+url+friendly>`_
+        | `golang short uuid url friendly - Yahoo search <https://search.yahoo.com/search?p=golang+short+uuid+url+friendly>`_
+        | `golang short uuid url friendly - Baidu search <https://www.baidu.com/s?wd=golang+short+uuid+url+friendly>`_
+        | `golang short uuid url friendly - Yandex search <https://www.yandex.com/search/?text=golang+short+uuid+url+friendly>`_
+        |
+        | `GitHub - matoous/go-nanoid: Golang random IDs generator. <https://github.com/matoous/go-nanoid>`_
+
 
 .. _Go: https://golang.org/
 .. _Ubuntu 20.04: https://releases.ubuntu.com/20.04/
