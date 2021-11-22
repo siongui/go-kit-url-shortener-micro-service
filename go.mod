@@ -5,8 +5,8 @@ go 1.17
 require (
 	github.com/gin-gonic/gin v1.7.4
 	github.com/go-kit/kit v0.12.0
+	github.com/matoous/go-nanoid/v2 v2.0.0
 	github.com/prometheus/client_golang v1.11.0
-	github.com/segmentio/ksuid v1.0.4
 	github.com/siongui/godom v0.0.0-20200920152407-31a6de96fdf6
 	github.com/uptrace/bun v1.0.17
 	github.com/uptrace/bun/dialect/pgdialect v1.0.17
