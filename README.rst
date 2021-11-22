@@ -95,7 +95,7 @@ Deployment
 ++++++++++
 
 - `Deploy to Amazon ECS <doc/deployECS.rst>`_
-- TODO: deploy to `Amazon EKS`_
+- `Deploy to Amazon EKS <doc/deployEKS.rst>`_
 
 
 UNLICENSE
