@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: docker-url-shortener
+  name: url-shorten-app
+  namespace: url-shorten-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: docker-url-shortener
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.26.0 (40646f47)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: docker-url-shortener
+    spec:
+      containers:
+        - image: url-shortener:latest
+          name: url-shorten-app
+          ports:
+            - name: tcp
+              containerPort: 8080
+          resources: {}
+      restartPolicy: Always
+status: {}
