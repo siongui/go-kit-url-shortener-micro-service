@@ -8,11 +8,16 @@ Deploy Docker Compose to Amazon EKS
   | `Exposing the Service :: Amazon EKS Workshop <https://www.eksworkshop.com/beginner/130_exposing-service/exposing/>`_
   | `AWS Load Balancer Controller - Amazon EKS <https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html>`_
   | `How it works - AWS Load Balancer Controller <https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.3/how-it-works/>`_
-  | `Network load balancing on Amazon EKS <https://docs.aws.amazon.com/eks/latest/userguide/network-load-balancing.html>`_
+  | `Network load balancing on Amazon EKS`_
   | In service yaml, ``spec.type`` set to ``LoadBalancer``
   | ``metadata.annotations`` set:
   | service.beta.kubernetes.io/aws-load-balancer-type: external
   | service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
+  | service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
+- **Important Note**: In `Network load balancing on Amazon EKS`_: ``it says If you're deploying to Fargate nodes, remove the service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing line.``.
+  If you look at the overview of the cluster in the EKS console, the node name
+  starts with *fargete*. If you do remove ``internet-facing``, the service can
+  not be accessed from outside internet. The documentation is **misleading**.
 
 
 References
@@ -22,3 +27,4 @@ References
        | `Building a bare-metal Kubernetes cluster on Raspberry Pi <https://anthonynsimon.com/blog/kubernetes-cluster-raspberry-pi/>`_
 
 .. _Docker Compose: https://docs.docker.com/compose/
+.. _Network load balancing on Amazon EKS: https://docs.aws.amazon.com/eks/latest/userguide/network-load-balancing.html
