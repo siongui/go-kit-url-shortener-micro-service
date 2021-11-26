@@ -5,9 +5,13 @@ on:
     branches:
       - main
 
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
 jobs:
 
-  test:
+  test-and-build-and-push-image:
     runs-on: ubuntu-latest
 
     # Service containers to run with `runner-job`
@@ -40,3 +44,23 @@ jobs:
     - name: Test
       run: |
         make test
+    # https://docs.github.com/en/actions/publishing-packages/publishing-docker-images
+    # https://github.com/docker/metadata-action#usage
+    - name: Extract metadata (tags, labels) for Docker
+      id: meta
+      uses: docker/metadata-action@v3
+      with:
+        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+    - name: Log in to the Container registry
+      uses: docker/login-action@v1
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        push: true
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
