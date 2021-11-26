@@ -20,6 +20,14 @@ Deploy Docker Compose to Amazon EKS
   not be accessed from outside internet. The documentation is **misleading**.
 
 
+Connect to Amazon RDS
++++++++++++++++++++++
+
+- Follow instructions in [2]_, choose ``Standard create``.
+- Create the PostgreSQL DB instance, choose the same VPC as EKS cluster.
+- Follow instructions in [3]_ to access the DB instance in the same VPC.
+
+
 Useful Command
 ++++++++++++++
 
@@ -75,6 +83,21 @@ References
 
 .. [1] | `Building a bare-metal Kubernetes cluster on Raspberry Pi | Hacker News <https://news.ycombinator.com/item?id=29306616>`_
        | `Building a bare-metal Kubernetes cluster on Raspberry Pi <https://anthonynsimon.com/blog/kubernetes-cluster-raspberry-pi/>`_
+
+.. [2] `Creating a PostgreSQL DB instance and connecting to a database on a PostgreSQL DB instance - Amazon Relational Database Service <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html>`_
+
+.. [3] `Scenarios for accessing a DB instance in a VPC - Amazon Relational Database Service <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Scenarios.html>`_
+
+.. [4] | `Accessing Amazon RDS From AWS EKS - DEV Community <https://dev.to/bensooraj/accessing-amazon-rds-from-aws-eks-2pc3>`_
+       | `Accessing Amazon RDS From AWS EKS - Google search <https://www.google.com/search?q=Accessing+Amazon+RDS+From+AWS+EKS>`_
+       | `Accessing Amazon RDS From AWS EKS - DuckDuckGo search <https://duckduckgo.com/?q=Accessing+Amazon+RDS+From+AWS+EKS>`_
+       | `Accessing Amazon RDS From AWS EKS - Ecosia search <https://www.ecosia.org/search?q=Accessing+Amazon+RDS+From+AWS+EKS>`_
+       | `Accessing Amazon RDS From AWS EKS - Qwant search <https://www.qwant.com/?q=Accessing+Amazon+RDS+From+AWS+EKS>`_
+       | `Accessing Amazon RDS From AWS EKS - Bing search <https://www.bing.com/search?q=Accessing+Amazon+RDS+From+AWS+EKS>`_
+       | `Accessing Amazon RDS From AWS EKS - Yahoo search <https://search.yahoo.com/search?p=Accessing+Amazon+RDS+From+AWS+EKS>`_
+       | `Accessing Amazon RDS From AWS EKS - Baidu search <https://www.baidu.com/s?wd=Accessing+Amazon+RDS+From+AWS+EKS>`_
+       | `Accessing Amazon RDS From AWS EKS - Yandex search <https://www.yandex.com/search/?text=Accessing+Amazon+RDS+From+AWS+EKS>`_
+
 
 .. _Docker Compose: https://docs.docker.com/compose/
 .. _Network load balancing on Amazon EKS: https://docs.aws.amazon.com/eks/latest/userguide/network-load-balancing.html
