@@ -7,3 +7,5 @@ services:
     image: url-shortener:latest
     ports:
       - 8080:8080
+    environment:
+      - SQLITE_DSN=${SQLITE_DSN:-file::memory:?cache=shared}
