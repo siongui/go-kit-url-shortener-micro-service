@@ -20,6 +20,56 @@ Deploy Docker Compose to Amazon EKS
   not be accessed from outside internet. The documentation is **misleading**.
 
 
+Useful Command
+++++++++++++++
+
+View all status of default ``kube-system``
+
+.. code-block:: bash
+
+  kubectl -n kube-system get all
+
+Create fargate profile ``url-shorten-app``
+
+.. code-block:: bash
+
+  eksctl create fargateprofile \
+      --cluster my-cluster \
+      --region region-code \
+      --name url-shorten-app \
+      --namespace url-shorten-app
+
+Create a namespace for the application ``url-shorten-app``
+
+.. code-block:: bash
+
+  kubectl create namespace url-shorten-app
+
+Apply the deployment manifest to the cluster
+
+.. code-block:: bash
+
+  kubectl apply -f resources/eks/docker-url-shortener-deployment.yaml
+
+Apply the service manifest to the cluster
+
+.. code-block:: bash
+
+  kubectl apply -f resources/eks/docker-url-shortener-service.yaml
+
+View all status of the application ``url-shorten-app``
+
+.. code-block:: bash
+
+  kubectl -n url-shorten-app get all
+
+Delete the namespace
+
+.. code-block:: bash
+
+  kubectl delete namespace url-shorten-app
+
+
 References
 ++++++++++
 

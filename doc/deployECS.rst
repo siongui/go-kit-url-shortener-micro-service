@@ -18,7 +18,6 @@ Deploy Docker Compose to Amazon ECS
      Otherwise cannot create ecs context or view ecs context.
 
 
-
 Issue
 +++++
 

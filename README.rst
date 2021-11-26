@@ -85,17 +85,15 @@ Local Development Environment
 Deployment Environment
 ----------------------
 
-- URL shortener + SQLite: Deployed on Amazon ECS with only 1 Fargate.
-- URL shortener + PostgresSQL: ``services.hostname`` in docker compose file is
-  not supported. To be studied.
+- URL shortener + SQLite: Deployed on Amazon EKS.
+- URL shortener + PostgresSQL: To be studied.
 - URL shortener + `Amazon RDS`_: To be studied.
 
 
 Deployment
 ++++++++++
 
-- `Deploy to Amazon ECS <doc/deployECS.rst>`_
-- `Deploy to Amazon EKS <doc/deployEKS.rst>`_
+`Deploy to Amazon EKS <doc/deployEKS.rst>`_
 
 
 UNLICENSE
