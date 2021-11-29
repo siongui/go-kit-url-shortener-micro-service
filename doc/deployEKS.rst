@@ -25,6 +25,9 @@ Connect to Amazon RDS
 
 - Follow instructions in [2]_, choose ``Standard create``.
 - Create the PostgreSQL DB instance, choose the same VPC as EKS cluster.
+- Remember to specify *Initial database name* for PostgresSQL instance in the
+  **Additional configuration** of ``Standard create``. If you do not specify a
+  database name, Amazon RDS does not create a database.
 - Follow instructions in [3]_ to access the DB instance in the same VPC.
 - If the pod cannot connect to the DB instance, check the security group of the
   DB instance. For example, if the DB instance belongs to ``default`` security
