@@ -26,6 +26,10 @@ Connect to Amazon RDS
 - Follow instructions in [2]_, choose ``Standard create``.
 - Create the PostgreSQL DB instance, choose the same VPC as EKS cluster.
 - Follow instructions in [3]_ to access the DB instance in the same VPC.
+- If the pod cannot connect to the DB instance, check the security group of the
+  DB instance. For example, if the DB instance belongs to ``default`` security
+  group of the VPC, try to allow all inbound traffic from **Source** of other
+  security group in the same VPC.
 
 
 Useful Command
@@ -78,6 +82,17 @@ Delete the namespace
   kubectl delete namespace url-shorten-app
 
 
+Fargate logging
++++++++++++++++
+
+- `Fargate logging - Amazon EKS <https://docs.aws.amazon.com/eks/latest/userguide/fargate-logging.html>`_
+- If you create the cluster via ``eksctl``, the ``eksctl`` already creates a
+  role named ``eksctl-CLUSTER_NAME-cluster-FargatePodExecutionRole-SOME_ID``
+  with ``AmazonEKSFargatePodExecutionRolePolicy``. We can use this existing
+  Fargate pod execution role instead of creating a new one.
+- Remember to set correct region in ``ConfigMap``.
+
+
 References
 ++++++++++
 
@@ -86,7 +101,8 @@ References
 
 .. [2] `Creating a PostgreSQL DB instance and connecting to a database on a PostgreSQL DB instance - Amazon Relational Database Service <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html>`_
 
-.. [3] `Scenarios for accessing a DB instance in a VPC - Amazon Relational Database Service <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Scenarios.html>`_
+.. [3] | `Scenarios for accessing a DB instance in a VPC - Amazon Relational Database Service <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Scenarios.html>`_
+       | `Connecting to a DB instance running the PostgreSQL database engine <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ConnectToPostgreSQLInstance.html>`_
 
 .. [4] | `Accessing Amazon RDS From AWS EKS - DEV Community <https://dev.to/bensooraj/accessing-amazon-rds-from-aws-eks-2pc3>`_
        | `Accessing Amazon RDS From AWS EKS - Google search <https://www.google.com/search?q=Accessing+Amazon+RDS+From+AWS+EKS>`_
