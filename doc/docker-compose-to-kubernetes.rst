@@ -90,7 +90,7 @@ The problem here is the following line:
 
 .. code-block:: yaml
 
-  image: url-shortener:latest``
+  image: url-shortener:latest
 
 We can not serve Docker images like this on Amazon EKS. We need to supply the
 image through container registry. Previous tutorial shows how to push the image
