@@ -1,3 +1,12 @@
+Summary
++++++++
+
+- `Push Docker Image to GitHub Pachages <push-docker-image-to-github-packages.rst>`_
+- `Translate Docker Compose File to Kubernetes Resources <docker-compose-to-kubernetes.rst>`_
+
+(to be continued)
+
+
 Deploy Docker Compose to Amazon EKS
 +++++++++++++++++++++++++++++++++++
 

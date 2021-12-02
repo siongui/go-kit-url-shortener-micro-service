@@ -70,30 +70,36 @@ To see metrics of the the micro-service:
   $ curl -XGET localhost:8080/metrics
 
 
-Service Configuration
-+++++++++++++++++++++
+Database Configuration
+++++++++++++++++++++++
 
-Possible service configuration in local and deployment environment.
+The application will determine which database to use according to environment
+variables. The application first check if the following environment variables
+are set:
 
-Local Development Environment
------------------------------
+- POSTGRES_USER
+- POSTGRES_PASSWORD
+- POSTGRES_HOST
+- POSTGRES_PORT
+- POSTGRES_DB
 
-- URL shortener + SQLite: 1 container, including both.
-- URL shortener + PostgresSQL: 2 container, one for URL shortener, the other for
-  PostgresSQL
+If they are set, The application will try to connect to PostgresSQL. If
+connection failure, the application will panic. If the *POSTGRES* env are not
+set, the application will then check the following environment variable:
 
-Deployment Environment
-----------------------
+- SQLITE_DSN
 
-- URL shortener + SQLite: Deployed on Amazon EKS.
-- URL shortener + PostgresSQL: To be studied.
-- URL shortener + `Amazon RDS`_: To be studied.
+If it is set, the application will try to connect to SQLite, panic if connection
+failure.
+
+If all above environment variables are not set, the application will use SQLite
+with ``file::memory:?cache=shared`` DSN. See `getds.go <getds.go>`_ for details.
 
 
 Deployment
 ++++++++++
 
-`Deploy to Amazon EKS <doc/deployEKS.rst>`_
+`Deploy to Amazon EKS <doc/eks/README.rst>`_
 
 
 UNLICENSE
@@ -198,6 +204,9 @@ References
         |
         | `GitHub - matoous/go-nanoid: Golang random IDs generator. <https://github.com/matoous/go-nanoid>`_
 
+.. [12] | `GitHub - regebro/hovercraft: Make dynamic impressive presentations from text files! <https://github.com/regebro/hovercraft>`_
+        | `rst2html5slides - Presentations from restructuredtext files — rst2html5slides 1.0 documentation <https://rst2html5slides.readthedocs.io/en/latest/>`_
+        | `List of markdown presentation tools · GitHub <https://gist.github.com/johnloy/27dd124ad40e210e91c70dd1c24ac8c8>`_
 
 .. _Go: https://golang.org/
 .. _Ubuntu 20.04: https://releases.ubuntu.com/20.04/
