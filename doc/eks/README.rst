@@ -1,10 +1,18 @@
 Summary
 +++++++
 
+
+Summary about how to deploy Go microservice in this repo to `Amazon EKS`_ and
+`Amazon RDS PostgresSQL`_.
+
 - `Push Docker Image to GitHub Pachages <push-docker-image-to-github-packages.rst>`_
 - `Translate Docker Compose File to Kubernetes Resources <docker-compose-to-kubernetes.rst>`_
+- `Quick Start with Amazon EKS <quick-start-with-amazon-ecs.rst>`_
 
 (to be continued)
+
+
+----
 
 
 Deploy Docker Compose to Amazon EKS
@@ -129,3 +137,5 @@ References
 
 .. _Docker Compose: https://docs.docker.com/compose/
 .. _Network load balancing on Amazon EKS: https://docs.aws.amazon.com/eks/latest/userguide/network-load-balancing.html
+.. _Amazon EKS: https://aws.amazon.com/eks/
+.. _Amazon RDS PostgresSQL: https://aws.amazon.com/rds/postgresql/
