@@ -60,8 +60,10 @@ Go Kit Features
 
 - JSON over HTTP (RESTful API), gRPC, etc.
 - Separation of concerns
-  - Logging
-  - Instrumentation
+
+  * Logging
+  * Instrumentation
+
 - Service discovery
 - Load balancing/ Circuit Breaker/ Rate Limit
 
@@ -94,7 +96,10 @@ Quick Demo
 
 - Short URL service using Go kit
 - Use only following Go kit features
+
   * JSON over HTTP
   * Logging
   * Instrumentation
+
 - Demo
+- Q&A
