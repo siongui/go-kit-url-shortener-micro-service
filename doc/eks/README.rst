@@ -8,6 +8,7 @@ Summary about how to deploy Go microservice in this repo to `Amazon EKS`_ and
 - `Push Docker Image to GitHub Pachages <push-docker-image-to-github-packages.rst>`_
 - `Translate Docker Compose File to Kubernetes Resources <docker-compose-to-kubernetes.rst>`_
 - `Quick Start with Amazon EKS <quick-start-with-amazon-ecs.rst>`_
+- `Deploy Short URL Service Application <deploy-short-url-service-app.rst>`_
 
 (to be continued)
 
