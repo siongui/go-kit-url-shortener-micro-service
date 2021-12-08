@@ -54,6 +54,9 @@ externally. Add the following in the service manifest of short URL service:
     service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
     service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
 
+For example of complete working service manifest, see
+`docker-url-shortener-service.yaml <../../resources/eks/docker-url-shortener-service.yaml>`_
+
 Note that the documentation of network load balancing says:
 
   If you're deploying to Fargate nodes, remove the
@@ -62,6 +65,6 @@ Note that the documentation of network load balancing says:
 This is not true. If the internet-facing line is removed, the service cannot be
 accessed from the internet. The documentation is misleading.
 
-In the beginning I think it is easy to expose the servide, but it turned out
+In the beginning I think it is easy to expose the service, but it turned out
 that this is the time-consuming, hard to understand, and difficult part of the
 deployment process.
