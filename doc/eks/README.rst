@@ -10,6 +10,7 @@ Summary about how to deploy Go microservice in this repo to `Amazon EKS`_ and
 - `Quick Start with Amazon EKS <quick-start-with-amazon-ecs.rst>`_
 - `Deploy Short URL Service Application <deploy-short-url-service-app.rst>`_
 - `Expose the Service on Amazon EKS <expose-the-service-on-amazon-eks.rst>`_
+- `Access Amazon RDS PostgreSQL in Amazon EKS Cluster <access-amazon-rds-in-amazon-eks.rst>`_
 
 (to be continued)
 
